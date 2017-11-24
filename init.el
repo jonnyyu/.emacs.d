@@ -54,7 +54,7 @@
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (counsel swiper smex atom-dark-theme hungry-delete monokai-theme company)))
+    (counsel swiper atom-dark-theme hungry-delete monokai-theme company)))
  '(pos-tip-background-color "#FFFACE")
  '(pos-tip-foreground-color "#272822")
  '(vc-annotate-background nil)
@@ -116,11 +116,6 @@
 ;; hungry delete mode
 (require 'hungry-delete)
 (global-hungry-delete-mode)
-
-;; config smex
-(require 'smex)
-(smex-initialize)
-;; (global-set-key (kbd "M-x") 'smex)
 
 ;; config swiper
 (ivy-mode 1)
