@@ -34,6 +34,8 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#272822" "#F92672" "#A6E22E" "#E6DB74" "#66D9EF" "#FD5FF0" "#A1EFE4" "#F8F8F2"])
+ '(company-idle-delay 0.08)
+ '(company-minimum-prefix-length 1)
  '(compilation-message-face (quote default))
  '(custom-enabled-themes (quote (atom-dark)))
  '(custom-safe-themes
@@ -54,7 +56,7 @@
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (counsel swiper atom-dark-theme hungry-delete monokai-theme company)))
+    (nodejs-repl js2-mode smartparens counsel swiper atom-dark-theme hungry-delete monokai-theme company)))
  '(pos-tip-background-color "#FFFACE")
  '(pos-tip-foreground-color "#272822")
  '(vc-annotate-background nil)
@@ -126,5 +128,28 @@
 (global-set-key (kbd "<f6>") 'ivy-resume)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-(global-set-key (kbd "<f1> f") 'counsel-describe-function)
-(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+(global-set-key (kbd "C-h f") 'counsel-describe-function)
+(global-set-key (kbd "C-h v") 'counsel-describe-variable)
+
+
+;; smartparens
+(require 'smartparens-config)
+(smartparens-global-mode t)
+
+
+;; config js2-mode
+;; associate js file with js2-mode
+(setq auto-mode-alist
+      (append
+       '(("\\.js\\'" . js2-mode))
+       auto-mode-alist))
+
+;; Find ELisp function defintion
+(global-set-key (kbd "C-h C-f") 'find-function)
+(global-set-key (kbd "C-h C-v") 'find-variable)
+(global-set-key (kbd "C-h C-k") 'find-function-on-key)
+
+
+;; Org mode config
+(setq org-agenda-files '("~/orgs"))
+(global-set-key (kbd "C-c a") 'org-agenda)
